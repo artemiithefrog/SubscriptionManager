@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct BobbyFinalApp: App {
+    
+    @ObservedObject var pickersVM = PickersViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(.light)
+                .environmentObject(pickersVM)
         }
     }
 }
