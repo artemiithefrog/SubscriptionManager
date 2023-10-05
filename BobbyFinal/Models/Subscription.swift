@@ -13,6 +13,7 @@ class Subscription: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var title = ""
     @Persisted var descriptions = ""
+    @Persisted var icon = ""
     @Persisted var currency = ""
     @Persisted var price = ""
     @Persisted var colorHex = ""

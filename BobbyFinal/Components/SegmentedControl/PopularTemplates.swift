@@ -20,10 +20,11 @@ struct PopularTemplates: View {
                     
                     realmManager.title = template.name
                     realmManager.color = template.color
+                    realmManager.icon = template.icon
                     realmManager.showNewSubscription.toggle()
                 } label: {
                     HStack {
-                        template.icon
+                        Image(template.icon)
                             .resizable()
                             .frame(width: 25, height: 25)
                             .padding(.leading)

@@ -30,7 +30,7 @@ struct NewSubscription: View {
                                 VStack {
                                     //                                                                currency + price
                                     HStack {
-                                        Image(systemName: "icloud.circle")
+                                        Image(realmManager.icon)
                                             .resizable()
                                             .frame(width: 70, height: 70)
                                             .foregroundColor(.white)
@@ -85,7 +85,6 @@ struct NewSubscription: View {
                                                 pickersVM.closePickers()
                                             }
                                     }
-//                                    .ignoresSafeArea(.keyboard)
                                     .padding()
                                     
                                     Divider()

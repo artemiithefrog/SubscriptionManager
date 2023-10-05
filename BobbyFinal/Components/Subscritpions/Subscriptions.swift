@@ -17,7 +17,7 @@ struct Subscriptions: View {
             ForEach(subscriptiions) { subscription in
                 ZStack {
                     HStack {
-                        Image(systemName: "icloud.circle")
+                        Image(subscription.icon)
                             .resizable()
                             .frame(width: 35, height: 35)
                             .foregroundColor(.white)

@@ -15,6 +15,7 @@ class RealmManager: ObservableObject {
     
     @Published var title = ""
     @Published var descriptions = ""
+    @Published var icon = ""
     @Published var currency = "$"
     @Published var price = ""
     @Published var color: Color = .orange
@@ -45,6 +46,7 @@ class RealmManager: ObservableObject {
                 try localRealm.write {
                     let newSubscription = Subscription(value: ["title" : title,
                                                                "descriptions" : descriptions,
+                                                               "icon" : icon,
                                                                "currency" : currency,
                                                                "price" : price,
                                                                "colorHex" : color.toHexString()])
@@ -107,6 +109,7 @@ class RealmManager: ObservableObject {
         
         title = ""
         descriptions = ""
+        icon = ""
         currency = "$"
         price = ""
         color = .orange

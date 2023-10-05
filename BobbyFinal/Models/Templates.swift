@@ -10,7 +10,7 @@ import SwiftUI
 struct Templates: Identifiable {
     
     var id = UUID()
-    var icon: Image
+    var icon: String
     var name: String
     var color: Color
     

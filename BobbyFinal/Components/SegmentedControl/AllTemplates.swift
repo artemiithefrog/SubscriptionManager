@@ -23,7 +23,7 @@ struct AllTemplates: View {
                     realmManager.showNewSubscription.toggle()
                 } label: {
                     HStack {
-                        template.icon
+                        Image(template.icon)
                             .resizable()
                             .frame(width: 25, height: 25)
                             .padding(.leading)
