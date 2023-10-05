@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160EE4152ACEED4B005DB61C /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160EE4142ACEED4B005DB61C /* NotificationHandler.swift */; };
 		1651AB842AC1B1E80074E940 /* AddSubscriptionSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651AB832AC1B1E80074E940 /* AddSubscriptionSegmentedControl.swift */; };
 		1651AB882AC1B6DB0074E940 /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651AB872AC1B6DB0074E940 /* Templates.swift */; };
 		1651AB8A2AC1B6F30074E940 /* TemplatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651AB892AC1B6F30074E940 /* TemplatesViewModel.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		160EE4142ACEED4B005DB61C /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		1651AB832AC1B1E80074E940 /* AddSubscriptionSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscriptionSegmentedControl.swift; sourceTree = "<group>"; };
 		1651AB872AC1B6DB0074E940 /* Templates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Templates.swift; sourceTree = "<group>"; };
 		1651AB892AC1B6F30074E940 /* TemplatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesViewModel.swift; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		160EE4132ACEED3D005DB61C /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				160EE4142ACEED4B005DB61C /* NotificationHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
 		1651AB822AC1B1B30074E940 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				16A2FB442ABDB3B000C24B11 /* BobbyFinalApp.swift */,
+				160EE4132ACEED3D005DB61C /* Handlers */,
 				1651AB862AC1B6C40074E940 /* ViewModels */,
 				1651AB852AC1B6BB0074E940 /* Models */,
 				16A2FB522ABDB3DF00C24B11 /* Views */,
@@ -277,6 +288,7 @@
 				1651ABA12AC1D4DB0074E940 /* DurationPicker.swift in Sources */,
 				1651AB882AC1B6DB0074E940 /* Templates.swift in Sources */,
 				1651ABA32AC1D4E70074E940 /* RemindMePicker.swift in Sources */,
+				160EE4152ACEED4B005DB61C /* NotificationHandler.swift in Sources */,
 				1651AB9A2AC1BDE40074E940 /* Color + Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

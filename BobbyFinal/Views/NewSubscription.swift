@@ -10,6 +10,7 @@ import SwiftUI
 struct NewSubscription: View {
     
     var selectedTemplate: Templates?
+    let notificationHandler = NotificationHandler()
     @EnvironmentObject var realmManager: RealmManager
     @EnvironmentObject var pickersVM: PickersViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -372,6 +373,15 @@ struct NewSubscription: View {
                 Button {
                     if realmManager.price != "" {
                         realmManager.addTask()
+                        realmManager.notificationId = notificationHandler.createNotification(every: pickersVM.selectedCyclePeriod,
+                                                                                             date: pickersVM.selectedCycleDate,
+                                                                                             from: pickersVM.firstBillDate,
+                                                                                             nextNotificationDay: pickersVM.selectedDay,
+                                                                                             nextNotificationInterval: pickersVM.selectedDate,
+                                                                                             repeats: true,
+                                                                                             title: "\(realmManager.title)'s bill",
+                                                                                             body: "This is notification from subscription manager, you'll pay \(realmManager.price) \(realmManager.currency)")
+                        notificationHandler.askPermission()
                     } else {
                         
                     }
