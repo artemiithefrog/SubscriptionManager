@@ -17,5 +17,6 @@ class Subscription: Object, ObjectKeyIdentifiable {
     @Persisted var currency = ""
     @Persisted var price = ""
     @Persisted var colorHex = ""
+    @Persisted var notificationId = ""
 
 }

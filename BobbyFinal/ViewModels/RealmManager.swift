@@ -19,6 +19,7 @@ class RealmManager: ObservableObject {
     @Published var currency = "$"
     @Published var price = ""
     @Published var color: Color = .orange
+    @Published var notificationId = ""
     
     @Published var showAddSubscription = false
     @Published var showNewSubscription = false
@@ -113,6 +114,7 @@ class RealmManager: ObservableObject {
         currency = "$"
         price = ""
         color = .orange
+        notificationId = ""
         
     }
 }
