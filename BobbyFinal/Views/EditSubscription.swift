@@ -38,7 +38,8 @@ struct EditSubscription: View {
                         .foregroundColor(.white)
                     Spacer()
                     Button {
-                        
+                        realmManager.updateTask(id: realmManager.objectId)
+                        dismiss()
                     } label: {
                         Text("Save")
                             .fontWeight(.bold)
@@ -174,7 +175,7 @@ struct EditSubscription: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                         Spacer()
-                        Text("\(pickersVM.firstBillDate.formatted(date: .long, time: .omitted))")
+                        Text("\(realmManager.firstBillDate.formatted(date: .long, time: .omitted))")
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .opacity(0.6)
@@ -204,7 +205,7 @@ struct EditSubscription: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                         Spacer()
-                        Text("\(pickersVM.selectedCycle) \(pickersVM.selectedCyclePeriod) \(pickersVM.selectedCycleDate)")
+                        Text("\(realmManager.selectedCycle) \(realmManager.selectedCyclePeriod) \(realmManager.selectedCycleDate)")
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .opacity(0.6)
@@ -234,7 +235,7 @@ struct EditSubscription: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                         Spacer()
-                        Text("\(pickersVM.date == 0 ? "Forever" : "\(pickersVM.date)") \(pickersVM.dayArray[pickersVM.day])")
+                        Text("\(realmManager.date == 0 ? "Forever" : "\(realmManager.date)") \(pickersVM.dayArray[realmManager.day])")
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .opacity(0.6)
@@ -264,18 +265,18 @@ struct EditSubscription: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                         Spacer()
-                        if pickersVM.selectedDate == 31 {
+                        if realmManager.selectedDate == 31 {
                             Text("Never")
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .opacity(0.6)
-                        } else if pickersVM.selectedDate == 32 {
+                        } else if realmManager.selectedDate == 32 {
                             Text("Same day")
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .opacity(0.6)
                         } else {
-                            Text("\(pickersVM.selectedDate) \(pickersVM.selectedDay) \(pickersVM.selectedTime)")
+                            Text("\(realmManager.selectedDate) \(realmManager.selectedDay) \(realmManager.selectedTime)")
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .opacity(0.6)
@@ -352,15 +353,15 @@ struct EditSubscription: View {
                             .pickerStyle(WheelPickerStyle())
                             .frame(maxWidth: .infinity)
                         } else if pickersVM.firstBillPickerIsAppear {
-                            DatePicker("", selection: $pickersVM.firstBillDate, displayedComponents: .date)
+                            DatePicker("", selection: $realmManager.firstBillDate, displayedComponents: .date)
                                 .labelsHidden()
                                 .datePickerStyle(.wheel)
                         } else if pickersVM.cyclePickerIsAppear {
-                            CyclePicker(selectedCycle: $pickersVM.selectedCycle, selectedCyclePeriod: $pickersVM.selectedCyclePeriod, selectedCycleDate: $pickersVM.selectedCycleDate, cycle: pickersVM.cycle, cyclePeriod: pickersVM.cyclePeriod, cycleDate: pickersVM.cycleDate)
+                            CyclePicker(selectedCycle: $realmManager.selectedCycle, selectedCyclePeriod: $realmManager.selectedCyclePeriod, selectedCycleDate: $realmManager.selectedCycleDate, cycle: pickersVM.cycle, cyclePeriod: pickersVM.cyclePeriod, cycleDate: pickersVM.cycleDate)
                         } else if pickersVM.durationPickerIsAppear {
-                            DurationPicker(date: $pickersVM.date, day: $pickersVM.day, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray)
+                            DurationPicker(date: $realmManager.date, day: $realmManager.day, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray)
                         } else {
-                            RemindMePicker(selectedDate: $pickersVM.selectedDate, selectedDay: $pickersVM.selectedDay, selectedTime: $pickersVM.selectedTime, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray, timeArray: pickersVM.timeArray)
+                            RemindMePicker(selectedDate: $realmManager.selectedDate, selectedDay: $realmManager.selectedDay, selectedTime: $realmManager.selectedTime, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray, timeArray: pickersVM.timeArray)
                         }
                     }
                     .frame(height: UIScreen.main.bounds.height / 3)

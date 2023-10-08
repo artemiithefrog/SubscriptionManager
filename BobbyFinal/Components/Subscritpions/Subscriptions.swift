@@ -58,6 +58,19 @@ struct Subscriptions: View {
                     realmManager.currency = subscription.currency
                     realmManager.price = subscription.price
                     realmManager.descriptions = subscription.descriptions
+                    
+                    realmManager.firstBillDate = subscription.firstBillDate
+                    realmManager.selectedDate = subscription.selectedDate
+                    realmManager.selectedDay = subscription.selectedDay
+                    realmManager.selectedTime = subscription.selectedTime
+                    realmManager.date = subscription.date
+                    realmManager.day = subscription.day
+                    realmManager.selectedCycle = subscription.selectedCycle
+                    realmManager.selectedCyclePeriod = subscription.selectedCyclePeriod
+                    realmManager.selectedCycleDate = subscription.selectedCycleDate
+                    
+                    realmManager.objectId = subscription.id
+                    
                 }
             }
         }

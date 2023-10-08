@@ -22,6 +22,21 @@ class RealmManager: ObservableObject {
     @Published var notificationId = ""
     @Published var colorHex = ""
     
+    @Published var firstBillDate = Date()
+
+    @Published var selectedDate = 31
+    @Published var selectedDay = ""
+    @Published var selectedTime = ""
+
+    @Published var date = 0
+    @Published var day = 0
+
+    @Published var selectedCycle = "Every"
+    @Published var selectedCyclePeriod = 1
+    @Published var selectedCycleDate = "Month(s)"
+    
+    @Published var objectId = ObjectId()
+    
     @Published var showAddSubscription = false
     @Published var showNewSubscription = false
     
@@ -51,7 +66,16 @@ class RealmManager: ObservableObject {
                                                                "icon" : icon,
                                                                "currency" : currency,
                                                                "price" : price,
-                                                               "colorHex" : color.toHexString()])
+                                                               "colorHex" : color.toHexString(),
+                                                               "firstBillDate" : firstBillDate,
+                                                               "selectedDate" : selectedDate,
+                                                               "selectedDay" : selectedDay,
+                                                               "selectedTime" : selectedTime,
+                                                               "date" : date,
+                                                               "day" : day,
+                                                               "selectedCycle" : selectedCycle,
+                                                               "selectedCyclePeriod" : selectedCyclePeriod,
+                                                               "selectedCycleDate" : selectedCycleDate])
                     localRealm.add(newSubscription)
                     getTasks()
                     print("Added new task to Realm: \(newSubscription)")
@@ -77,12 +101,24 @@ class RealmManager: ObservableObject {
     func updateTask(id: ObjectId) {
         if let localRealm = localRealm {
             do {
-                let subscriptionToUpdate = localRealm.objects(Subscription.self).filter(NSPredicate(format: "id == %@", id))
-                guard !subscriptionToUpdate.isEmpty else { return }
-                
                 try localRealm.write {
+                    let updatedSubsciption = localRealm.create(Subscription.self, value: ["id" : id,
+                                                                                          "title" : self.title,
+                                                                                          "descriptions" : self.descriptions,
+                                                                                          "icon" : self.icon,
+                                                                                          "currency" : self.currency,
+                                                                                          "price" : self.price,
+                                                                                          "firstBillDate" : self.firstBillDate,
+                                                                                          "selectedDate" : self.selectedDate,
+                                                                                          "selectedDay" : self.selectedDay,
+                                                                                          "selectedTime" : self.selectedTime,
+                                                                                          "date" : self.date,
+                                                                                          "day" : self.day,
+                                                                                          "selectedCycle" : self.selectedCycle,
+                                                                                          "selectedCyclePeriod" : self.selectedCyclePeriod,
+                                                                                          "selectedCycleDate" : self.selectedCycleDate], update: .modified)
                     getTasks()
-                    print("Updated task with id \(id)!")
+                    print("Added new task to Realm: \(updatedSubsciption)")
                 }
             } catch {
                 print("Error updating task \(id) to Realm: \(error.localizedDescription)")
@@ -117,5 +153,14 @@ class RealmManager: ObservableObject {
         color = .orange
         notificationId = ""
         
+        firstBillDate = Date()
+        selectedDate = 31
+        selectedDay = ""
+        selectedTime = ""
+        date = 0
+        day = 0
+        selectedCycle = "Every"
+        selectedCyclePeriod = 1
+        selectedCycleDate = "Month(s)"
     }
 }

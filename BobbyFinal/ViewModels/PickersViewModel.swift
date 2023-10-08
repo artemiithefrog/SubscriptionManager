@@ -9,28 +9,12 @@ import SwiftUI
 
 class PickersViewModel: ObservableObject {
     
-    @Published var firstBillDate = Date()
-    
     @Published var currencies = ["$", "€", "£", "¥", "₹", "₽", "₿", "₱", "฿", "₪", "₩", "₫"]
     
-    //    Remid me Picker
-    @Published var selectedDate = 31
-    @Published var selectedDay = ""
-    @Published var selectedTime = ""
-    
     var timeArray = ["", "before"]
-    
-    //    Duration Picker
-    @Published var date = 0
-    @Published var day = 0
-    
+
     var dateArray = Array(1...30)
     var dayArray = ["", "Day(s)", "Week(s)", "Month(s)", "Year(s)"]
-    
-    //    Cycle Picker
-    @Published var selectedCycle = "Every"
-    @Published var selectedCyclePeriod = 1
-    @Published var selectedCycleDate = "Month(s)"
     
     var cycle = ["Every"]
     var cyclePeriod = Array(1...30)
