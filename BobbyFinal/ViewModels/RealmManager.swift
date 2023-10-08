@@ -20,6 +20,7 @@ class RealmManager: ObservableObject {
     @Published var price = ""
     @Published var color: Color = .orange
     @Published var notificationId = ""
+    @Published var colorHex = ""
     
     @Published var showAddSubscription = false
     @Published var showNewSubscription = false

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		160EE4152ACEED4B005DB61C /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160EE4142ACEED4B005DB61C /* NotificationHandler.swift */; };
+		16258AD32AD04B7F003DF425 /* EditSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16258AD22AD04B7F003DF425 /* EditSubscription.swift */; };
 		1651AB842AC1B1E80074E940 /* AddSubscriptionSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651AB832AC1B1E80074E940 /* AddSubscriptionSegmentedControl.swift */; };
 		1651AB882AC1B6DB0074E940 /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651AB872AC1B6DB0074E940 /* Templates.swift */; };
 		1651AB8A2AC1B6F30074E940 /* TemplatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651AB892AC1B6F30074E940 /* TemplatesViewModel.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		160EE4142ACEED4B005DB61C /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
+		16258AD22AD04B7F003DF425 /* EditSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubscription.swift; sourceTree = "<group>"; };
 		1651AB832AC1B1E80074E940 /* AddSubscriptionSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscriptionSegmentedControl.swift; sourceTree = "<group>"; };
 		1651AB872AC1B6DB0074E940 /* Templates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Templates.swift; sourceTree = "<group>"; };
 		1651AB892AC1B6F30074E940 /* TemplatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesViewModel.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				16A2FB552ABDB40A00C24B11 /* AllSubscriptions.swift */,
 				16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */,
 				1651AB9C2AC1C3E40074E940 /* NewSubscription.swift */,
+				16258AD22AD04B7F003DF425 /* EditSubscription.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				16A2FB562ABDB40A00C24B11 /* AllSubscriptions.swift in Sources */,
 				1651AB9D2AC1C3E40074E940 /* NewSubscription.swift in Sources */,
 				1651AB972AC1BDB90074E940 /* Subscription.swift in Sources */,
+				16258AD32AD04B7F003DF425 /* EditSubscription.swift in Sources */,
 				1651AB8C2AC1BB4C0074E940 /* PopularTemplates.swift in Sources */,
 				16A2FB582ABDBDEF00C24B11 /* AddSubscription.swift in Sources */,
 				1651ABA92AC1D57B0074E940 /* PickersViewModel.swift in Sources */,

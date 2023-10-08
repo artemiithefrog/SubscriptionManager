@@ -10,6 +10,8 @@ import SwiftUI
 struct Subscriptions: View {
     
     let subscriptiions: [Subscription]
+    @State var showEditSubscription = false
+    @StateObject var realmManager = RealmManager()
     
     var body: some View {
         
@@ -48,7 +50,20 @@ struct Subscriptions: View {
                 .cornerRadius(5)
                 .padding(EdgeInsets(top: 0, leading: 8, bottom: 4, trailing: 8))
                 .contentShape(RoundedRectangle(cornerRadius: 10))
+                .onTapGesture {
+                    showEditSubscription.toggle()
+                    realmManager.title = subscription.title
+                    realmManager.colorHex = subscription.colorHex
+                    realmManager.icon = subscription.icon
+                    realmManager.currency = subscription.currency
+                    realmManager.price = subscription.price
+                    realmManager.descriptions = subscription.descriptions
+                }
             }
+        }
+        .sheet(isPresented: $showEditSubscription) {
+            EditSubscription()
+                .environmentObject(realmManager)
         }
     }
 }

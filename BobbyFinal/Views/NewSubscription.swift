@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct NewSubscription: View {
-    
-    var selectedTemplate: Templates?
+
     let notificationHandler = NotificationHandler()
     @EnvironmentObject var realmManager: RealmManager
     @EnvironmentObject var pickersVM: PickersViewModel
