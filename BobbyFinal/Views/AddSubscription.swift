@@ -59,7 +59,7 @@ struct AddSubscription: View {
                     }
                 }
                 .navigationDestination(isPresented: $realmManager.showNewSubscription) {
-                    NewSubscription(selectedTemplate: templatesVM.selectedTemplate)
+                    NewSubscription()
                         .environmentObject(realmManager)
                 }
         }
