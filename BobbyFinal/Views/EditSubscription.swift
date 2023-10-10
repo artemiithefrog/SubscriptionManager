@@ -90,25 +90,28 @@ struct EditSubscription: View {
                             }
                             .padding(.trailing, 10)
                         }
-                        TextField("0,00", text: $realmManager.price)
-                            .font(.system(size: 27))
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .tint(.white)
-                            .opacity(0.9)
-                            .multilineTextAlignment(.trailing)
-                            .padding()
-                            .frame(width: 140, height: 50)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 7)
-                                    .stroke(Color.white, lineWidth: 1)
-                                    .opacity(priceIsFocused ? 1 : 0.2)
-                            )
-                            .keyboardType(.decimalPad)
-                            .focused($priceIsFocused)
-                            .onTapGesture {
-                                pickersVM.closePickers()
-                            }
+                        TextField(text: $realmManager.price) {
+                            Text("0,00")
+                                .foregroundColor(.white.opacity(0.7))
+                        }
+                        .font(.system(size: 27))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .tint(.white)
+                        .opacity(0.9)
+                        .multilineTextAlignment(.trailing)
+                        .padding()
+                        .frame(width: 140, height: 50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 7)
+                                .stroke(Color.white, lineWidth: 1)
+                                .opacity(priceIsFocused ? 1 : 0.2)
+                        )
+                        .keyboardType(.decimalPad)
+                        .focused($priceIsFocused)
+                        .onTapGesture {
+                            pickersVM.closePickers()
+                        }
                     }
                     .padding()
                     HStack {
@@ -116,14 +119,17 @@ struct EditSubscription: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                         Spacer()
-                        TextField("Enter name", text: $realmManager.title)
-                            .multilineTextAlignment(.trailing)
-                            .tint(.white)
-                            .foregroundColor(.white)
-                            .focused($nameIsFocused)
-                            .onTapGesture {
-                                pickersVM.closePickers()
-                            }
+                        TextField(text: $realmManager.title) {
+                            Text("Enter name")
+                                .foregroundColor(.white.opacity(0.7))
+                        }
+                        .multilineTextAlignment(.trailing)
+                        .tint(.white)
+                        .foregroundColor(.white)
+                        .focused($nameIsFocused)
+                        .onTapGesture {
+                            pickersVM.closePickers()
+                        }
                     }
                     .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
                     
@@ -137,14 +143,17 @@ struct EditSubscription: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                         Spacer()
-                        TextField("Enter description", text: $realmManager.descriptions)
-                            .multilineTextAlignment(.trailing)
-                            .tint(.white)
-                            .foregroundColor(.white)
-                            .focused($descriptionIsFocused)
-                            .onTapGesture {
-                                pickersVM.closePickers()
-                            }
+                        TextField(text: $realmManager.descriptions) {
+                            Text("Enter description")
+                                .foregroundColor(.white.opacity(0.7))
+                        }
+                        .multilineTextAlignment(.trailing)
+                        .tint(.white)
+                        .foregroundColor(.white)
+                        .focused($nameIsFocused)
+                        .onTapGesture {
+                            pickersVM.closePickers()
+                        }
                     }
                     .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
                     
@@ -313,7 +322,9 @@ struct EditSubscription: View {
                     .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
                     
                     Button {
-                        
+                        dismiss()
+                        realmManager.deleteTask(id: realmManager.objectId)
+//                        realmManager.getTasks()
                     } label: {
                         Text("DELETE SUBSCRIPTION")
                             .foregroundColor(.white)

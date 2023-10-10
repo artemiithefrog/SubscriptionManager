@@ -129,16 +129,15 @@ class RealmManager: ObservableObject {
     func deleteTask(id: ObjectId) {
         if let localRealm = localRealm {
             do {
-                let subscriptionToDelete = localRealm.objects(Subscription.self).filter(NSPredicate(format: "id == %@", id))
-                guard !subscriptionToDelete.isEmpty else { return }
-                
-                try localRealm.write {
-                    localRealm.delete(subscriptionToDelete)
+                if let subscriptionToDelete = localRealm.object(ofType: Subscription.self, forPrimaryKey: id) {
+                    try localRealm.write {
+                        // Удаление категории
+                        localRealm.delete(subscriptionToDelete)
+                    }
                     getTasks()
-                    print("Deleted task with id \(id)")
                 }
             } catch {
-                print("Error deleting task \(id) from Realm: \(error.localizedDescription)")
+                print("Error deleting category: \(error)")
             }
         }
     }
