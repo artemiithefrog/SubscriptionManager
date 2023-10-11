@@ -70,7 +70,7 @@ struct Subscriptions: View {
                     realmManager.selectedCycleDate = subscription.selectedCycleDate
                     
                     realmManager.objectId = subscription.id
-                    
+                    realmManager.notificationId = subscription.notificationId
                 }
             }
         }

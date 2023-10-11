@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditSubscription: View {
     
+    let notificationHandler = NotificationHandler()
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var realmManager: RealmManager
     @EnvironmentObject var pickersVM: PickersViewModel
@@ -39,7 +40,17 @@ struct EditSubscription: View {
                     Spacer()
                     Button {
                         realmManager.updateTask(id: realmManager.objectId)
+                        notificationHandler.deleteNotification(id: realmManager.notificationId)
+                        realmManager.notificationId = notificationHandler.createNotification(every: realmManager.selectedCyclePeriod,
+                                                                                             date: realmManager.selectedCycleDate,
+                                                                                             from: realmManager.firstBillDate,
+                                                                                             nextNotificationDay: realmManager.selectedDay,
+                                                                                             nextNotificationInterval: realmManager.selectedDate,
+                                                                                             repeats: true,
+                                                                                             title: "\(realmManager.title)'s bill",
+                                                                                             body: "This is notification from subscription manager, you'll pay \(realmManager.price) \(realmManager.currency)")
                         dismiss()
+                        realmManager.deinitData()
                     } label: {
                         Text("Save")
                             .fontWeight(.bold)
@@ -324,7 +335,7 @@ struct EditSubscription: View {
                     Button {
                         dismiss()
                         realmManager.deleteTask(id: realmManager.objectId)
-//                        realmManager.getTasks()
+                        realmManager.deinitData()
                     } label: {
                         Text("DELETE SUBSCRIPTION")
                             .foregroundColor(.white)

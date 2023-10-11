@@ -105,7 +105,6 @@ class RealmManager: ObservableObject {
                     let updatedSubsciption = localRealm.create(Subscription.self, value: ["id" : id,
                                                                                           "title" : self.title,
                                                                                           "descriptions" : self.descriptions,
-                                                                                          "icon" : self.icon,
                                                                                           "currency" : self.currency,
                                                                                           "price" : self.price,
                                                                                           "firstBillDate" : self.firstBillDate,
