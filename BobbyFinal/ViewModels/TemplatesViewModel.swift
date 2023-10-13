@@ -11,13 +11,13 @@ class TemplatesViewModel {
     
     var popularTemplates: [Templates] =
     [
-        Templates(icon: "apple", name: "Amazon AWS", color: Color(hex: "#FF9900") ),
+        Templates(icon: "facebook", name: "Amazon AWS", color: Color(hex: "#FF9900") ),
         Templates(icon: "discord", name: "American Express", color: Color(hex: "#002663")),
-        Templates(icon: "facebook", name: "Apple Music", color: Color(hex: "#000000")),
+        Templates(icon: "apple", name: "Apple Music", color: Color(hex: "#000000")),
         Templates(icon: "github", name: "AT&T", color: Color(hex: "#FF7201")),
         Templates(icon: "google", name: "Bank of America", color: Color(hex: "#194F90")),
         Templates(icon: "instagram", name: "Basecamp", color: Color(hex: "#6FC267")),
-        Templates(icon: "linkedin", name: "Creative Cloud", color: Color(hex: "#D61304")),
+        Templates(icon: "creativeCloud", name: "Creative Cloud", color: Color(hex: "#D61304")),
         Templates(icon: "spotify", name: "Deezer", color: Color(hex: "#010000")),
         Templates(icon: "telegram", name: "Dribble", color: Color(hex: "#EA4C89")),
         Templates(icon: "tik-tok", name: "Dropbox", color: Color(hex: "#0161FE")),
