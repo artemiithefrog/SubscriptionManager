@@ -24,6 +24,7 @@ struct EditSubscription: View {
                 HStack {
                     Button {
                         dismiss()
+                        pickersVM.closePickers()
                     } label: {
                         Image(systemName: "chevron.down")
                             .resizable()
