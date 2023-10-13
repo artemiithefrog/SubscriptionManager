@@ -114,6 +114,7 @@ struct NewSubscription: View {
                                         }
                                     }
                                     .padding()
+                                    
                                     Divider()
                                         .frame(width: 330, height: 1)
                                         .overlay(.white)
@@ -137,6 +138,7 @@ struct NewSubscription: View {
                                         }
                                     }
                                     .padding()
+                                    
                                     Divider()
                                         .frame(width: 330, height: 1)
                                         .overlay(.white)
@@ -311,55 +313,55 @@ struct NewSubscription: View {
                             .background(realmManager.color)
                             .cornerRadius(10)
                             .padding()
-                            Spacer()
                         }
                     }
                 }
             }
             .ignoresSafeArea(.keyboard)
             
-            VStack {
-                if pickersVM.showPicker {
-                    VStack {
-                        HStack {
-                            Spacer()
-                            Button {
-                                withAnimation {
-                                    pickersVM.closePickers()
-                                }
-                            } label: {
-                                Text("Done")
-                                    .foregroundColor(.gray)
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 20))
-                            }
-                        }
-                        .padding()
+            if pickersVM.showPicker {
+                VStack {
+                    Divider()
+                        .frame(height: 1)
+                    Spacer()
+                    HStack {
                         Spacer()
-                        if pickersVM.currencyPickerIsAppear {
-                            Picker(selection: $realmManager.currency, label: Text("Currency")) {
-                                ForEach(pickersVM.currencies, id: \.self) { symbol in
-                                    Text(symbol)
-                                }
+                        Button {
+                            withAnimation {
+                                pickersVM.closePickers()
                             }
-                            .pickerStyle(WheelPickerStyle())
-                            .frame(maxWidth: .infinity)
-                        } else if pickersVM.firstBillPickerIsAppear {
-                            DatePicker("", selection: $realmManager.firstBillDate, displayedComponents: .date)
-                                .labelsHidden()
-                                .datePickerStyle(.wheel)
-                        } else if pickersVM.cyclePickerIsAppear {
-                            CyclePicker(selectedCycle: $realmManager.selectedCycle, selectedCyclePeriod: $realmManager.selectedCyclePeriod, selectedCycleDate: $realmManager.selectedCycleDate, cycle: pickersVM.cycle, cyclePeriod: pickersVM.cyclePeriod, cycleDate: pickersVM.cycleDate)
-                        } else if pickersVM.durationPickerIsAppear {
-                            DurationPicker(date: $realmManager.date, day: $realmManager.day, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray)
-                        } else {
-                            RemindMePicker(selectedDate: $realmManager.selectedDate, selectedDay: $realmManager.selectedDay, selectedTime: $realmManager.selectedTime, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray, timeArray: pickersVM.timeArray)
+                        } label: {
+                            Text("Done")
+                                .foregroundColor(.gray)
+                                .fontWeight(.bold)
+                                .font(.system(size: 20))
                         }
                     }
-                    .frame(height: UIScreen.main.bounds.height / 3)
-                    .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.bottom))
-                    .transition(.move(edge: .bottom))
+                    .padding()
+                    Spacer()
+                    if pickersVM.currencyPickerIsAppear {
+                        Picker(selection: $realmManager.currency, label: Text("Currency")) {
+                            ForEach(pickersVM.currencies, id: \.self) { symbol in
+                                Text(symbol)
+                            }
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                        .frame(maxWidth: .infinity)
+                    } else if pickersVM.firstBillPickerIsAppear {
+                        DatePicker("", selection: $realmManager.firstBillDate, displayedComponents: .date)
+                            .labelsHidden()
+                            .datePickerStyle(.wheel)
+                    } else if pickersVM.cyclePickerIsAppear {
+                        CyclePicker(selectedCycle: $realmManager.selectedCycle, selectedCyclePeriod: $realmManager.selectedCyclePeriod, selectedCycleDate: $realmManager.selectedCycleDate, cycle: pickersVM.cycle, cyclePeriod: pickersVM.cyclePeriod, cycleDate: pickersVM.cycleDate)
+                    } else if pickersVM.durationPickerIsAppear {
+                        DurationPicker(date: $realmManager.date, day: $realmManager.day, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray)
+                    } else {
+                        RemindMePicker(selectedDate: $realmManager.selectedDate, selectedDay: $realmManager.selectedDay, selectedTime: $realmManager.selectedTime, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray, timeArray: pickersVM.timeArray)
+                    } 
                 }
+                .frame(height: UIScreen.main.bounds.height / 3)
+                .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.bottom))
+                .transition(.move(edge: .bottom))
             }
         }
         .toolbar {
