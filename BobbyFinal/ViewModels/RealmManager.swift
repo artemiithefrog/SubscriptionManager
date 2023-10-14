@@ -12,7 +12,7 @@ class RealmManager: ObservableObject {
     
     private var localRealm: Realm?
     @Published var subscriptions: [Subscription] = []
-    @Published var subscriptionToDelete: Subscription = Subscription()
+    @Published var selectedSusbscription: Subscription = Subscription()
     
     @Published var title = ""
     @Published var descriptions = ""
