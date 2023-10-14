@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct Subscriptions: View {
     
     let subscriptiions: [Subscription]
+    @ObservedResults(Subscription.self) var subscription
     @State var showEditSubscription = false
     @StateObject var realmManager = RealmManager()
     
     var body: some View {
-        
         ScrollView(showsIndicators: false) {
-            ForEach(subscriptiions) { subscription in
+            ForEach(subscription) { subscription in
                 ZStack {
                     HStack {
                         Image(subscription.icon)
@@ -71,6 +72,8 @@ struct Subscriptions: View {
                     
                     realmManager.objectId = subscription.id
                     realmManager.notificationId = subscription.notificationId
+                    
+                    realmManager.subscriptionToDelete = subscription
                 }
             }
         }
@@ -80,7 +83,3 @@ struct Subscriptions: View {
         }
     }
 }
-
-//#Preview {
-//    Subscriptions()
-//}

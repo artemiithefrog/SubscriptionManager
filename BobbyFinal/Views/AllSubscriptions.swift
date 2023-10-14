@@ -5,6 +5,7 @@
 //  Created by artemiithefrog . on 22.09.2023.
 //
 
+import RealmSwift
 import SwiftUI
 
 struct AllSubscriptions: View {
@@ -28,6 +29,7 @@ struct AllSubscriptions: View {
                     }
                 } else {
                     Subscriptions(subscriptiions: realmManager.subscriptions)
+//                    Subscriptions(subscriptiions: subscription)
                         .padding(.top, 10)
                 }
             }

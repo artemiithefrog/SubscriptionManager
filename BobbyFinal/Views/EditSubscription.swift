@@ -102,6 +102,7 @@ struct EditSubscription: View {
                             }
                             .padding(.trailing, 10)
                         }
+//                        TextField(text: $realmManager.price) {
                         TextField(text: $realmManager.price) {
                             Text("0,00")
                                 .foregroundColor(.white.opacity(0.7))
@@ -334,9 +335,10 @@ struct EditSubscription: View {
                     .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
                     
                     Button {
-                        dismiss()
-                        realmManager.deleteTask(id: realmManager.objectId)
+                        $realmManager.subscriptionToDelete.delete()
+                        realmManager.getTasks()
                         realmManager.deinitData()
+                        dismiss()
                     } label: {
                         Text("DELETE SUBSCRIPTION")
                             .foregroundColor(.white)
@@ -397,6 +399,6 @@ struct EditSubscription: View {
     }
 }
 
-#Preview {
-    EditSubscription()
-}
+//#Preview {
+//    EditSubscription()
+//}
