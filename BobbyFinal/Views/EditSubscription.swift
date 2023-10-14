@@ -338,6 +338,7 @@ struct EditSubscription: View {
                         $realmManager.subscriptionToDelete.delete()
                         realmManager.getTasks()
                         realmManager.deinitData()
+                        notificationHandler.deleteNotification(id: realmManager.notificationId)
                         dismiss()
                     } label: {
                         Text("DELETE SUBSCRIPTION")
