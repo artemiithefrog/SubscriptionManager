@@ -39,6 +39,7 @@ class RealmManager: ObservableObject {
     @Published var objectId = ObjectId()
     
     @Published var showAddSubscription = false
+    @Published var showCustomSubscription = false
     @Published var showNewSubscription = false
     
     init() {

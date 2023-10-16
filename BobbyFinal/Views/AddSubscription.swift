@@ -45,7 +45,7 @@ struct AddSubscription: View {
                         VStack {
                             GeometryReader { geometry in
                                 Button {
-                                    
+                                    realmManager.showCustomSubscription = true
                                 } label: {
                                     Text("Create custom subscription")
                                 }
@@ -62,6 +62,11 @@ struct AddSubscription: View {
                     NewSubscription()
                         .environmentObject(realmManager)
                 }
+                .navigationDestination(isPresented: $realmManager.showCustomSubscription) {
+                    CustomSubscription()
+                        .environmentObject(realmManager)
+                }
+
         }
     }
 }

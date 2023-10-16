@@ -31,6 +31,7 @@
 		16A2FB4C2ABDB3B200C24B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16A2FB4B2ABDB3B200C24B11 /* Preview Assets.xcassets */; };
 		16A2FB562ABDB40A00C24B11 /* AllSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2FB552ABDB40A00C24B11 /* AllSubscriptions.swift */; };
 		16A2FB582ABDBDEF00C24B11 /* AddSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */; };
+		16A806EC2ADD797200231E62 /* CustomSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A806EB2ADD797200231E62 /* CustomSubscription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		16A2FB4B2ABDB3B200C24B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		16A2FB552ABDB40A00C24B11 /* AllSubscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSubscriptions.swift; sourceTree = "<group>"; };
 		16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscription.swift; sourceTree = "<group>"; };
+		16A806EB2ADD797200231E62 /* CustomSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */,
 				1651AB9C2AC1C3E40074E940 /* NewSubscription.swift */,
 				16258AD22AD04B7F003DF425 /* EditSubscription.swift */,
+				16A806EB2ADD797200231E62 /* CustomSubscription.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				1651AB8C2AC1BB4C0074E940 /* PopularTemplates.swift in Sources */,
 				16A2FB582ABDBDEF00C24B11 /* AddSubscription.swift in Sources */,
 				1651ABA92AC1D57B0074E940 /* PickersViewModel.swift in Sources */,
+				16A806EC2ADD797200231E62 /* CustomSubscription.swift in Sources */,
 				1651AB842AC1B1E80074E940 /* AddSubscriptionSegmentedControl.swift in Sources */,
 				1651AB902AC1BD170074E940 /* RealmManager.swift in Sources */,
 				16A2FB452ABDB3B000C24B11 /* BobbyFinalApp.swift in Sources */,
