@@ -13,8 +13,6 @@ struct AddSubscriptionSegmentedControl: View {
     
     @State var popularChosen = true
     @State var allChosen = false
-    
-//    @EnvironmentObject var realmManager: RealmManager
 
     var body: some View {
         

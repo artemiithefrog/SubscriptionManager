@@ -20,6 +20,7 @@ struct AllTemplates: View {
                     
                     realmManager.title = template.name
                     realmManager.color = template.color
+                    realmManager.icon = template.icon
                     realmManager.showNewSubscription.toggle()
                 } label: {
                     HStack {
