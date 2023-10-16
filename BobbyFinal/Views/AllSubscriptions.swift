@@ -29,7 +29,6 @@ struct AllSubscriptions: View {
                     }
                 } else {
                     Subscriptions(subscriptiions: realmManager.subscriptions)
-//                    Subscriptions(subscriptiions: subscription)
                         .padding(.top, 10)
                 }
             }
