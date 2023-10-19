@@ -427,6 +427,7 @@ struct NewSubscription: View {
         .navigationBarBackButtonHidden(true)
         .onDisappear {
             realmManager.deinitData()
+            realmManager.showNewSubscription = false
         }
     }
 }
