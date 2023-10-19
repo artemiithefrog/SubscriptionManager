@@ -17,7 +17,7 @@ struct ColorPickerViewController: UIViewControllerRepresentable {
         }
 
         func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
-            parent.selectedColor = viewController.selectedColor
+           parent.selectedColor = viewController.selectedColor
         }
 
         func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {

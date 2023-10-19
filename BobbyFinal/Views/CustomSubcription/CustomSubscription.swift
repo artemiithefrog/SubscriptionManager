@@ -14,8 +14,16 @@ struct CustomSubscription: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.dismiss) var dismiss
     
-    @State var isDisclosed: Bool = false
+    @FocusState var nameIsFocused: Bool
+    @FocusState var priceIsFocused: Bool
+    @FocusState var descriptionIsFocused: Bool
+    
+    @State var isDisclosed = false
+    @State var showColorPicker = false
     @State var selectedIcon = ""
+    
+    @State var selectedUIColor: UIColor = .black
+    @State var isColorPicked = false
     
     var body: some View {
         NavigationStack {
@@ -36,7 +44,7 @@ struct CustomSubscription: View {
                     Spacer()
                     Text("Add")
                         .bold()
-                        .tint(.gray)
+                        .tint(realmManager.color)
                         .opacity(0.5)
                 }
                 .padding()
@@ -51,13 +59,23 @@ struct CustomSubscription: View {
                                         realmManager.showIconPicker.toggle()
                                     } label: {
                                         if realmManager.icon.isEmpty {
-                                            Circle()
-                                                .frame(width: 75, height: 75)
+                                            ZStack {
+                                                Circle()
+                                                    .fill(.gray).opacity(0.4)
+                                                    .frame(width: 75, height: 75)
+                                                VStack {
+                                                    Text("Add")
+                                                    Text("icon")
+                                                }
+                                                .tint(.black)
+                                                .font(.system(size: 15))
+                                            }
+
                                         } else {
                                             Image(realmManager.icon)
                                                 .resizable()
                                                 .frame(width: 70, height: 70)
-                                                .foregroundColor(.white)
+                                                .foregroundColor(.blue)
                                         }
                                     }
                                     
@@ -83,9 +101,9 @@ struct CustomSubscription: View {
                                                                               cyclePickerIsAppear: false,
                                                                               durationPickerIsAppear: false,
                                                                               remindMePickerIsAppear: false)
-//                                                        priceIsFocused = false
-//                                                        nameIsFocused = false
-//                                                        descriptionIsFocused = false
+                                                        priceIsFocused = false
+                                                        nameIsFocused = false
+                                                        descriptionIsFocused = false
                                                     }
                                                 }
                                         }
@@ -106,10 +124,10 @@ struct CustomSubscription: View {
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 7)
                                             .stroke(Color.white, lineWidth: 1)
-//                                            .opacity(priceIsFocused ? 1 : 0.2)
+                                            .opacity(priceIsFocused ? 1 : 0.2)
                                     )
                                     .keyboardType(.decimalPad)
-//                                    .focused($priceIsFocused)
+                                    .focused($priceIsFocused)
                                     .onTapGesture {
                                         pickersVM.closePickers()
                                     }
@@ -134,7 +152,7 @@ struct CustomSubscription: View {
                                     .multilineTextAlignment(.trailing)
                                     .tint(.white)
                                     .foregroundColor(.white)
-//                                    .focused($nameIsFocused)
+                                    .focused($nameIsFocused)
                                     .onTapGesture {
                                         pickersVM.closePickers()
                                     }
@@ -158,7 +176,7 @@ struct CustomSubscription: View {
                                     .multilineTextAlignment(.trailing)
                                     .tint(.white)
                                     .foregroundColor(.white)
-//                                    .focused($nameIsFocused)
+                                    .focused($nameIsFocused)
                                     .onTapGesture {
                                         pickersVM.closePickers()
                                     }
@@ -173,12 +191,31 @@ struct CustomSubscription: View {
                                 HStack {
                                     Text("Categories")
                                         .fontWeight(.bold)
-                                        .foregroundColor(.white)
+                                        .foregroundColor(isColorPicked ? .white : .black)
                                     Spacer()
                                     Image(systemName: "chevron.right")
-                                        .foregroundColor(.white)
+                                        .foregroundColor(isColorPicked ? .white : .black)
                                 }
                                 .padding()
+                                
+                                Divider()
+                                    .frame(width: 330, height: 1)
+                                    .overlay(.white)
+                                    .opacity(0.5)
+//                                 color
+                                HStack {
+                                    Text("Color")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(isColorPicked ? .white : .black)
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(isColorPicked ? .white :  .black)
+                                }
+                                .padding()
+                                .onTapGesture {
+                                    showColorPicker = true
+//                                    selectedUIColor = UIColor(realmManager.color)
+                                }
                                 //                        more options
                                 VStack {
                                     Divider()
@@ -202,9 +239,9 @@ struct CustomSubscription: View {
                                                                   cyclePickerIsAppear: false,
                                                                   durationPickerIsAppear: false,
                                                                   remindMePickerIsAppear: false)
-//                                            priceIsFocused = false
-//                                            nameIsFocused = false
-//                                            descriptionIsFocused = false
+                                            priceIsFocused = false
+                                            nameIsFocused = false
+                                            descriptionIsFocused = false
                                         }
                                     }
                                     .padding()
@@ -231,9 +268,9 @@ struct CustomSubscription: View {
                                                                   cyclePickerIsAppear: true,
                                                                   durationPickerIsAppear: false,
                                                                   remindMePickerIsAppear: false)
-//                                            priceIsFocused = false
-//                                            nameIsFocused = false
-//                                            descriptionIsFocused = false
+                                            priceIsFocused = false
+                                            nameIsFocused = false
+                                            descriptionIsFocused = false
                                         }
                                     }
                                     .padding()
@@ -260,9 +297,9 @@ struct CustomSubscription: View {
                                                                   cyclePickerIsAppear: false,
                                                                   durationPickerIsAppear: true,
                                                                   remindMePickerIsAppear: false)
-//                                            priceIsFocused = false
-//                                            nameIsFocused = false
-//                                            descriptionIsFocused = false
+                                            priceIsFocused = false
+                                            nameIsFocused = false
+                                            descriptionIsFocused = false
                                         }
                                     }
                                     .padding()
@@ -301,9 +338,9 @@ struct CustomSubscription: View {
                                                                   cyclePickerIsAppear: false,
                                                                   durationPickerIsAppear: false,
                                                                   remindMePickerIsAppear: true)
-//                                            priceIsFocused = false
-//                                            nameIsFocused = false
-//                                            descriptionIsFocused = false
+                                            priceIsFocused = false
+                                            nameIsFocused = false
+                                            descriptionIsFocused = false
                                         }
                                     }
                                     .padding()
@@ -338,17 +375,75 @@ struct CustomSubscription: View {
                         }
                         .background(realmManager.color)
                         .cornerRadius(10)
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.gray, lineWidth: isColorPicked ? 0 : 1).opacity(1)
+                        )
                         .padding()
                     }
                 }
+            }
+            if pickersVM.showPicker {
+                VStack {
+                    Divider()
+                        .frame(height: 1)
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button {
+                            withAnimation {
+                                pickersVM.closePickers()
+                            }
+                        } label: {
+                            Text("Done")
+                                .foregroundColor(.gray)
+                                .fontWeight(.bold)
+                                .font(.system(size: 20))
+                        }
+                    }
+                    .padding()
+                    Spacer()
+                    if pickersVM.currencyPickerIsAppear {
+                        Picker(selection: $realmManager.currency, label: Text("Currency")) {
+                            ForEach(pickersVM.currencies, id: \.self) { symbol in
+                                Text(symbol)
+                            }
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                        .frame(maxWidth: .infinity)
+                    } else if pickersVM.firstBillPickerIsAppear {
+                        DatePicker("", selection: $realmManager.firstBillDate, displayedComponents: .date)
+                            .labelsHidden()
+                            .datePickerStyle(.wheel)
+                    } else if pickersVM.cyclePickerIsAppear {
+                        CyclePicker(selectedCycle: $realmManager.selectedCycle, selectedCyclePeriod: $realmManager.selectedCyclePeriod, selectedCycleDate: $realmManager.selectedCycleDate, cycle: pickersVM.cycle, cyclePeriod: pickersVM.cyclePeriod, cycleDate: pickersVM.cycleDate)
+                    } else if pickersVM.durationPickerIsAppear {
+                        DurationPicker(date: $realmManager.date, day: $realmManager.day, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray)
+                    } else {
+                        RemindMePicker(selectedDate: $realmManager.selectedDate, selectedDay: $realmManager.selectedDay, selectedTime: $realmManager.selectedTime, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray, timeArray: pickersVM.timeArray)
+                    }
+                }
+                .frame(height: UIScreen.main.bounds.height / 3)
+                .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.bottom))
+                .transition(.move(edge: .bottom))
             }
         }
         .navigationBarBackButtonHidden(true)
         .onDisappear {
             realmManager.showCustomSubscription = false
+            realmManager.deinitData()
         }
         .sheet(isPresented: $realmManager.showIconPicker) {
             ChooseIcon()
+        }
+        .sheet(isPresented: $showColorPicker) {
+            ColorPickerViewController(selectedColor: $selectedUIColor)
+        }
+        .onChange(of: selectedUIColor) { newValue in
+            realmManager.color = Color(uiColor: newValue)
+        }
+        .onChange(of: realmManager.color) { newValue in
+            isColorPicked = true
         }
     }
 }
