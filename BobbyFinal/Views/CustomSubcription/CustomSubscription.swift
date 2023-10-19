@@ -16,9 +16,6 @@ struct CustomSubscription: View {
     
     @State var isDisclosed: Bool = false
     @State var selectedIcon = ""
-    @State var showIconPicker = false
-    
-    var icons = ["camera", "envelope", "graduation-cap", "home", "shopping-cart", "video-camera-alt"]
     
     var body: some View {
         NavigationStack {
@@ -51,13 +48,13 @@ struct CustomSubscription: View {
                                 HStack {
                                     
                                     Button {
-                                        showIconPicker.toggle()
+                                        realmManager.showIconPicker.toggle()
                                     } label: {
-                                        if selectedIcon == "" {
+                                        if realmManager.icon.isEmpty {
                                             Circle()
                                                 .frame(width: 75, height: 75)
                                         } else {
-                                            Image(selectedIcon)
+                                            Image(realmManager.icon)
                                                 .resizable()
                                                 .frame(width: 70, height: 70)
                                                 .foregroundColor(.white)
@@ -350,17 +347,8 @@ struct CustomSubscription: View {
         .onDisappear {
             realmManager.showCustomSubscription = false
         }
-        .sheet(isPresented: $showIconPicker) {
-            ForEach(icons, id: \.self) { icon in
-                Button {
-                    selectedIcon = icon
-                    showIconPicker = false
-                } label: {
-                    Image(icon)
-                        .resizable()
-                        .frame(width: 70, height: 70)
-                }
-            }
+        .sheet(isPresented: $realmManager.showIconPicker) {
+            ChooseIcon()
         }
     }
 }

@@ -41,6 +41,7 @@ class RealmManager: ObservableObject {
     @Published var showAddSubscription = false
     @Published var showCustomSubscription = false
     @Published var showNewSubscription = false
+    @Published var showIconPicker = false
     
     init() {
         openRealm()
