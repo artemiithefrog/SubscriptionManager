@@ -25,6 +25,7 @@
 		1651ABA32AC1D4E70074E940 /* RemindMePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651ABA22AC1D4E70074E940 /* RemindMePicker.swift */; };
 		1651ABA72AC1D5360074E940 /* Subscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651ABA62AC1D5360074E940 /* Subscriptions.swift */; };
 		1651ABA92AC1D57B0074E940 /* PickersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651ABA82AC1D57B0074E940 /* PickersViewModel.swift */; };
+		165768462AE2B2BD008DD8E3 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165768452AE2B2BD008DD8E3 /* ColorPicker.swift */; };
 		16A2FB452ABDB3B000C24B11 /* BobbyFinalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2FB442ABDB3B000C24B11 /* BobbyFinalApp.swift */; };
 		16A2FB472ABDB3B000C24B11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2FB462ABDB3B000C24B11 /* ContentView.swift */; };
 		16A2FB492ABDB3B200C24B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16A2FB482ABDB3B200C24B11 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		1651ABA22AC1D4E70074E940 /* RemindMePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMePicker.swift; sourceTree = "<group>"; };
 		1651ABA62AC1D5360074E940 /* Subscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscriptions.swift; sourceTree = "<group>"; };
 		1651ABA82AC1D57B0074E940 /* PickersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickersViewModel.swift; sourceTree = "<group>"; };
+		165768452AE2B2BD008DD8E3 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		16A2FB412ABDB3B000C24B11 /* BobbyFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BobbyFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16A2FB442ABDB3B000C24B11 /* BobbyFinalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BobbyFinalApp.swift; sourceTree = "<group>"; };
 		16A2FB462ABDB3B000C24B11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				1651AB9E2AC1D4CB0074E940 /* CyclePicker.swift */,
 				1651ABA02AC1D4DB0074E940 /* DurationPicker.swift */,
 				1651ABA22AC1D4E70074E940 /* RemindMePicker.swift */,
+				165768452AE2B2BD008DD8E3 /* ColorPicker.swift */,
 			);
 			path = Pickers;
 			sourceTree = "<group>";
@@ -145,6 +148,14 @@
 				1651ABA62AC1D5360074E940 /* Subscriptions.swift */,
 			);
 			path = Subscritpions;
+			sourceTree = "<group>";
+		};
+		165768442AE2B285008DD8E3 /* CustomSubscription */ = {
+			isa = PBXGroup;
+			children = (
+				16A806EB2ADD797200231E62 /* CustomSubscription.swift */,
+			);
+			path = CustomSubscription;
 			sourceTree = "<group>";
 		};
 		16A2FB382ABDB3B000C24B11 = {
@@ -195,7 +206,7 @@
 				16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */,
 				1651AB9C2AC1C3E40074E940 /* NewSubscription.swift */,
 				16258AD22AD04B7F003DF425 /* EditSubscription.swift */,
-				16A806EB2ADD797200231E62 /* CustomSubscription.swift */,
+				165768442AE2B285008DD8E3 /* CustomSubscription */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,6 +303,7 @@
 				16A806EC2ADD797200231E62 /* CustomSubscription.swift in Sources */,
 				1651AB842AC1B1E80074E940 /* AddSubscriptionSegmentedControl.swift in Sources */,
 				1651AB902AC1BD170074E940 /* RealmManager.swift in Sources */,
+				165768462AE2B2BD008DD8E3 /* ColorPicker.swift in Sources */,
 				16A2FB452ABDB3B000C24B11 /* BobbyFinalApp.swift in Sources */,
 				1651ABA12AC1D4DB0074E940 /* DurationPicker.swift in Sources */,
 				1651AB882AC1B6DB0074E940 /* Templates.swift in Sources */,
