@@ -10,7 +10,7 @@ import SwiftUI
 struct PopularTemplates: View {
     
     var templatesVM = TemplatesViewModel()
-    @EnvironmentObject var realmManager: RealmManager
+    @StateObject var realmManager = RealmManager()
     
     var body: some View {
         ScrollView {
@@ -49,7 +49,6 @@ struct PopularTemplates: View {
                 }
             }
         }
-
     }
 }
 

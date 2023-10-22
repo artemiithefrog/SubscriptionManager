@@ -11,7 +11,7 @@ class TemplatesViewModel {
     
     var popularTemplates: [Templates] =
     [
-        Templates(icon: "facebook", name: "Amazon AWS", color: Color(hex: "#FF9900") ),
+        Templates(icon: "facebook", name: "Amazon AWS", color: Color(hex: "#FF9900")),
         Templates(icon: "discord", name: "American Express", color: Color(hex: "#002663")),
         Templates(icon: "apple", name: "Apple Music", color: Color(hex: "#000000")),
         Templates(icon: "github", name: "AT&T", color: Color(hex: "#FF7201")),

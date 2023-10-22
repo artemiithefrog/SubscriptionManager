@@ -1,11 +1,7 @@
-//
-//  ColorPicker.swift
-//  BobbyFinal
-//
-//  Created by artemiithefrog . on 20.10.2023.
+//  Created by artemiithefrog . on 18.10.2023.
 //
 
-
+>>>>>>> f9070f5f40eea07e9a0b8f15df215b369cc0e489
 import UIKit
 import SwiftUI
 

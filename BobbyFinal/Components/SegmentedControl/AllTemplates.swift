@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct AllTemplates: View {
-    
-    @EnvironmentObject var realmManager: RealmManager
-    var templatesVM = TemplatesViewModel()
+
+    var templatesVM = TemplatesViewModel()    
+    @StateObject var realmManager = RealmManager()
     
     var body: some View {
         ScrollView {
