@@ -71,7 +71,6 @@ struct AllSubscriptions: View {
                 AddSubscription()
                     .environmentObject(realmManager)
             }
-
         }
     }
 }

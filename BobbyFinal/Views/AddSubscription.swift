@@ -10,7 +10,6 @@ import SwiftUI
 struct AddSubscription: View {
     
     @EnvironmentObject var realmManager: RealmManager
-    var templatesVM = TemplatesViewModel()
     @Environment (\.dismiss) var dismiss
     
     var body: some View {
@@ -58,21 +57,11 @@ struct AddSubscription: View {
                         .padding(.bottom, 20)
                     }
                 }
-                .navigationDestination(isPresented: $realmManager.showNewSubscription) {
-                    NewSubscription()
-                        .environmentObject(realmManager)
-                }
                 .navigationDestination(isPresented: $realmManager.showCustomSubscription) {
-                    CustomSubscription()
-                        .environmentObject(realmManager)
+//                    CustomSubscription()
+//                        .environmentObject(realmManager)
                 }
 
         }
     }
-}
-
-
-#Preview {
-    AddSubscription()
-        .environmentObject(RealmManager())
 }

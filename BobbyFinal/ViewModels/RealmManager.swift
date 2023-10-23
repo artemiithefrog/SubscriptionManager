@@ -40,7 +40,7 @@ class RealmManager: ObservableObject {
     
     @Published var showAddSubscription = false
     @Published var showCustomSubscription = false
-    @Published var showNewSubscription = false
+//    @Published var showNewSubscription = false
     @Published var showIconPicker = false
     
     init() {
@@ -87,8 +87,9 @@ class RealmManager: ObservableObject {
                 print("Error adding task to Realm: \(error.localizedDescription)")
             }
         }
+        
         showAddSubscription = false
-        showNewSubscription = false
+//        showNewSubscription = false
     }
     
     func getTasks() {

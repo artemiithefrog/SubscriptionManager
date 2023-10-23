@@ -71,6 +71,4 @@ class TemplatesViewModel {
         Templates(icon: "whatsapp", name: "Google Domains", color: Color(hex: "#4285F4")),
         Templates(icon: "youtube", name: "Google Drive", color: Color(hex: "#1DA463"))
     ]
-    
-    @Published var selectedTemplate: Templates?
 }

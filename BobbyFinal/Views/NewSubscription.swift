@@ -21,6 +21,23 @@ struct NewSubscription: View {
     @State var isDisclosed: Bool = false
     
     var body: some View {
+        
+//        VStack {
+//            HStack {
+//                Button {
+//                    presentationMode.wrappedValue.dismiss()
+//                } label: {
+//                    Image(systemName: "chevron.left")
+//                        .bold()
+//                }
+//                .tint(.gray)
+//            }
+//            ScrollView {
+//                
+//            }
+//        }
+        
+        
         NavigationStack {
             VStack {
                 ZStack {
@@ -427,7 +444,7 @@ struct NewSubscription: View {
         .navigationBarBackButtonHidden(true)
         .onDisappear {
             realmManager.deinitData()
-            realmManager.showNewSubscription = false
+//            realmManager.showNewSubscription = false
         }
     }
 }
