@@ -20,11 +20,19 @@ struct Subscriptions: View {
             ForEach(subscription) { subscription in
                 ZStack {
                     HStack {
-                        Image(subscription.icon)
-                            .resizable()
-                            .frame(width: 35, height: 35)
-                            .foregroundColor(.white)
-                            .padding(.trailing)
+                        if subscription.icon == "" {
+                            Image("squirrel")
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                                .foregroundColor(.white)
+                                .padding(.trailing)
+                        } else {
+                            Image(subscription.icon)
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                                .foregroundColor(.white)
+                                .padding(.trailing)
+                        }
                         VStack(alignment: .leading) {
                             if subscription.descriptions != "" {
                                 Text(subscription.title)

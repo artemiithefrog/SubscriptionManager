@@ -33,6 +33,7 @@
 		16A2FB562ABDB40A00C24B11 /* AllSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2FB552ABDB40A00C24B11 /* AllSubscriptions.swift */; };
 		16A2FB582ABDBDEF00C24B11 /* AddSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */; };
 		16D779E72AE7D6CC006FFC44 /* CustomSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D779E62AE7D6CC006FFC44 /* CustomSubscription.swift */; };
+		16D779EA2AE7D949006FFC44 /* CustomSubscriptionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D779E92AE7D949006FFC44 /* CustomSubscriptionIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		16A2FB552ABDB40A00C24B11 /* AllSubscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSubscriptions.swift; sourceTree = "<group>"; };
 		16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscription.swift; sourceTree = "<group>"; };
 		16D779E62AE7D6CC006FFC44 /* CustomSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscription.swift; sourceTree = "<group>"; };
+		16D779E92AE7D949006FFC44 /* CustomSubscriptionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscriptionIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				16D779E62AE7D6CC006FFC44 /* CustomSubscription.swift */,
+				16D779E92AE7D949006FFC44 /* CustomSubscriptionIcon.swift */,
 			);
 			path = "Custom Subscription";
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				16D779E72AE7D6CC006FFC44 /* CustomSubscription.swift in Sources */,
 				160EE4152ACEED4B005DB61C /* NotificationHandler.swift in Sources */,
 				1651AB9A2AC1BDE40074E940 /* Color + Ext.swift in Sources */,
+				16D779EA2AE7D949006FFC44 /* CustomSubscriptionIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

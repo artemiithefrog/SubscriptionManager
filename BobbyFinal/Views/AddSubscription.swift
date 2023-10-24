@@ -11,6 +11,7 @@ struct AddSubscription: View {
     
     @EnvironmentObject var realmManager: RealmManager
     @Environment (\.dismiss) var dismiss
+    @State private var showCustomSubscriptionView = false
     
     var body: some View {
         NavigationStack {
@@ -44,7 +45,7 @@ struct AddSubscription: View {
                         VStack {
                             GeometryReader { geometry in
                                 Button {
-
+                                    showCustomSubscriptionView = true
                                 } label: {
                                     Text("Create custom subscription")
                                 }
@@ -56,6 +57,10 @@ struct AddSubscription: View {
                         }
                         .padding(.bottom, 20)
                     }
+                }
+                .sheet(isPresented: $showCustomSubscriptionView) {
+                    CustomSubscription()
+                        .environmentObject(realmManager)
                 }
         }
     }

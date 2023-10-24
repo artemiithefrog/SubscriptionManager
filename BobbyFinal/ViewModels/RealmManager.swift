@@ -19,7 +19,7 @@ class RealmManager: ObservableObject {
     @Published var icon = ""
     @Published var currency = "$"
     @Published var price = ""
-    @Published var color: Color = Color(red: 213, green: 104, blue: 41)
+    @Published var color: Color = .black
     @Published var notificationId = ""
     @Published var colorHex = ""
     
@@ -144,7 +144,7 @@ class RealmManager: ObservableObject {
         icon = ""
         currency = "$"
         price = ""
-        color = .orange
+        color = .black
         notificationId = ""
         
         firstBillDate = Date()
