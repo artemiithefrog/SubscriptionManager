@@ -410,6 +410,7 @@ struct NewSubscription: View {
                                                                                              title: "\(realmManager.title)'s bill",
                                                                                              body: "This is notification from subscription manager, you'll pay \(realmManager.price) \(realmManager.currency)")
                         notificationHandler.askPermission()
+                        UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
                     } else {
                         
                     }
