@@ -32,6 +32,7 @@
 		16A2FB4C2ABDB3B200C24B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16A2FB4B2ABDB3B200C24B11 /* Preview Assets.xcassets */; };
 		16A2FB562ABDB40A00C24B11 /* AllSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2FB552ABDB40A00C24B11 /* AllSubscriptions.swift */; };
 		16A2FB582ABDBDEF00C24B11 /* AddSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */; };
+		16D779E72AE7D6CC006FFC44 /* CustomSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D779E62AE7D6CC006FFC44 /* CustomSubscription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		16A2FB4B2ABDB3B200C24B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		16A2FB552ABDB40A00C24B11 /* AllSubscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSubscriptions.swift; sourceTree = "<group>"; };
 		16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscription.swift; sourceTree = "<group>"; };
+		16D779E62AE7D6CC006FFC44 /* CustomSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +198,17 @@
 				16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */,
 				1651AB9C2AC1C3E40074E940 /* NewSubscription.swift */,
 				16258AD22AD04B7F003DF425 /* EditSubscription.swift */,
+				16D779E82AE7D6DF006FFC44 /* Custom Subscription */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		16D779E82AE7D6DF006FFC44 /* Custom Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				16D779E62AE7D6CC006FFC44 /* CustomSubscription.swift */,
+			);
+			path = "Custom Subscription";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +307,7 @@
 				1651ABA12AC1D4DB0074E940 /* DurationPicker.swift in Sources */,
 				1651AB882AC1B6DB0074E940 /* Templates.swift in Sources */,
 				1651ABA32AC1D4E70074E940 /* RemindMePicker.swift in Sources */,
+				16D779E72AE7D6CC006FFC44 /* CustomSubscription.swift in Sources */,
 				160EE4152ACEED4B005DB61C /* NotificationHandler.swift in Sources */,
 				1651AB9A2AC1BDE40074E940 /* Color + Ext.swift in Sources */,
 			);

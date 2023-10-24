@@ -21,26 +21,50 @@ struct NewSubscription: View {
     @State var isDisclosed: Bool = false
     
     var body: some View {
-        
-//        VStack {
-//            HStack {
-//                Button {
-//                    presentationMode.wrappedValue.dismiss()
-//                } label: {
-//                    Image(systemName: "chevron.left")
-//                        .bold()
-//                }
-//                .tint(.gray)
-//            }
-//            ScrollView {
-//                
-//            }
-//        }
-        
-        
         NavigationStack {
             VStack {
-                ZStack {
+                HStack {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .resizable()
+                            .frame(width: 10, height: 17)
+                        
+                    }
+                    .tint(.gray)
+                    Spacer()
+                    Text("New Subscription")
+                        .fontWeight(.bold)
+                    Spacer()
+                    Button {
+                        if realmManager.price != "" {
+                            realmManager.addTask()
+                            realmManager.notificationId = notificationHandler.createNotification(every: realmManager.selectedCyclePeriod,
+                                                                                                 date: realmManager.selectedCycleDate,
+                                                                                                 from: realmManager.firstBillDate,
+                                                                                                 nextNotificationDay: realmManager.selectedDay,
+                                                                                                 nextNotificationInterval: realmManager.selectedDate,
+                                                                                                 repeats: true,
+                                                                                                 title: "\(realmManager.title)'s bill",
+                                                                                                 body: "This is notification from subscription manager, you'll pay \(realmManager.price) \(realmManager.currency)")
+                            notificationHandler.askPermission()
+                            UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
+                        } else {
+                            
+                        }
+                    } label: {
+                        if realmManager.price != "" {
+                            Text("Add")
+                                .tint(realmManager.color)
+                        } else {
+                            Text("Add")
+                                .tint(.gray)
+                                .opacity(0.5)
+                        }
+                    }
+                }
+                .padding()
                     ScrollView {
                         VStack {
                             ZStack {
@@ -332,7 +356,6 @@ struct NewSubscription: View {
                             .padding()
                         }
                     }
-                }
             }
             .ignoresSafeArea(.keyboard)
             
@@ -381,50 +404,8 @@ struct NewSubscription: View {
                 .transition(.move(edge: .bottom))
             }
         }
+        .navigationBarBackButtonHidden(true)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .resizable()
-                        .frame(width: 10, height: 17)
-                    
-                }
-                .tint(.gray)
-            }
-            ToolbarItem(placement: .principal) {
-                Text("New Subscription")
-                    .fontWeight(.bold)
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    if realmManager.price != "" {
-                        realmManager.addTask()
-                        realmManager.notificationId = notificationHandler.createNotification(every: realmManager.selectedCyclePeriod,
-                                                                                             date: realmManager.selectedCycleDate,
-                                                                                             from: realmManager.firstBillDate,
-                                                                                             nextNotificationDay: realmManager.selectedDay,
-                                                                                             nextNotificationInterval: realmManager.selectedDate,
-                                                                                             repeats: true,
-                                                                                             title: "\(realmManager.title)'s bill",
-                                                                                             body: "This is notification from subscription manager, you'll pay \(realmManager.price) \(realmManager.currency)")
-                        notificationHandler.askPermission()
-                        UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
-                    } else {
-                        
-                    }
-                } label: {
-                    if realmManager.price != "" {
-                        Text("Add")
-                            .tint(realmManager.color)
-                    } else {
-                        Text("Add")
-                            .tint(.gray)
-                            .opacity(0.5)
-                    }
-                }
-            }
             ToolbarItemGroup(placement: .keyboard) {
                 HStack {
                     Spacer()
@@ -442,10 +423,8 @@ struct NewSubscription: View {
                 }
             }
         }
-        .navigationBarBackButtonHidden(true)
         .onDisappear {
             realmManager.deinitData()
-//            realmManager.showNewSubscription = false
         }
     }
 }
