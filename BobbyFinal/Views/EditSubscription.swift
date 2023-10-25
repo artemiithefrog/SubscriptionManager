@@ -18,6 +18,8 @@ struct EditSubscription: View {
     @FocusState var priceIsFocused: Bool
     @FocusState var descriptionIsFocused: Bool
     
+    @State private var showCustomIconView = false
+    
     var body: some View {
         VStack {
             VStack {
@@ -41,15 +43,15 @@ struct EditSubscription: View {
                     Spacer()
                     Button {
                         realmManager.updateTask(id: realmManager.objectId)
-                        notificationHandler.deleteNotification(id: realmManager.selectedSusbscription.notificationId)
-                        realmManager.notificationId = notificationHandler.createNotification(every: realmManager.selectedSusbscription.selectedCyclePeriod,
-                                                                                             date: realmManager.selectedSusbscription.selectedCycleDate,
-                                                                                             from: realmManager.selectedSusbscription.firstBillDate,
-                                                                                             nextNotificationDay: realmManager.selectedSusbscription.selectedDay,
-                                                                                             nextNotificationInterval: realmManager.selectedSusbscription.selectedDate,
+                        notificationHandler.deleteNotification(id: realmManager.notificationId)
+                        realmManager.notificationId = notificationHandler.createNotification(every: realmManager.selectedCyclePeriod,
+                                                                                             date: realmManager.selectedCycleDate,
+                                                                                             from: realmManager.firstBillDate,
+                                                                                             nextNotificationDay: realmManager.selectedDay,
+                                                                                             nextNotificationInterval: realmManager.selectedDate,
                                                                                              repeats: true,
-                                                                                             title: "\(realmManager.selectedSusbscription.title)'s bill",
-                                                                                             body: "This is notification from subscription manager, you'll pay \(realmManager.selectedSusbscription.price) \(realmManager.selectedSusbscription.currency)")
+                                                                                             title: "\(realmManager.title)'s bill",
+                                                                                             body: "This is notification from subscription manager, you'll pay \(realmManager.price) \(realmManager.currency)")
                         dismiss()
                         realmManager.deinitData()
                     } label: {
@@ -65,18 +67,24 @@ struct EditSubscription: View {
                     .frame(height: 0.5)
                     .overlay(.white)
                     .opacity(0.5)
+                
                 ScrollView {
                     HStack {
-                        Image(realmManager.selectedSusbscription.icon)
-                            .resizable()
-                            .frame(width: 70, height: 70)
-                            .foregroundColor(.white)
+                        
+                        if realmManager.icon == "" {
+
+                        } else {
+                            Image(realmManager.selectedSusbscription.icon)
+                                .resizable()
+                                .frame(width: 70, height: 70)
+                                .foregroundColor(.white)
+                        }
                         
                         Spacer()
                         VStack {
                             HStack {
                                 Spacer()
-                                Text("\(realmManager.selectedSusbscription.currency)")
+                                Text("\(realmManager.currency)")
                                     .font(.system(size: 27))
                                     .foregroundColor(.white)
                                     .fontWeight(.bold)
@@ -102,7 +110,7 @@ struct EditSubscription: View {
                             }
                             .padding(.trailing, 10)
                         }
-                        TextField(text: $realmManager.selectedSusbscription.price) {
+                        TextField(text: $realmManager.price) {
                             Text("0,00")
                                 .foregroundColor(.white.opacity(0.7))
                         }
@@ -131,7 +139,7 @@ struct EditSubscription: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                         Spacer()
-                        TextField(text: $realmManager.selectedSusbscription.title) {
+                        TextField(text: $realmManager.title) {
                             Text("Enter name")
                                 .foregroundColor(.white.opacity(0.7))
                         }
@@ -155,7 +163,7 @@ struct EditSubscription: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                         Spacer()
-                        TextField(text: $realmManager.selectedSusbscription.descriptions) {
+                        TextField(text: $realmManager.descriptions) {
                             Text("Enter description")
                                 .foregroundColor(.white.opacity(0.7))
                         }
@@ -196,7 +204,7 @@ struct EditSubscription: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                         Spacer()
-                        Text("\(realmManager.selectedSusbscription.firstBillDate.formatted(date: .long, time: .omitted))")
+                        Text("\(realmManager.firstBillDate.formatted(date: .long, time: .omitted))")
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .opacity(0.6)
@@ -226,7 +234,7 @@ struct EditSubscription: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                         Spacer()
-                        Text("\(realmManager.selectedSusbscription.selectedCycle) \(realmManager.selectedSusbscription.selectedCyclePeriod) \(realmManager.selectedSusbscription.selectedCycleDate)")
+                        Text("\(realmManager.selectedCycle) \(realmManager.selectedCyclePeriod) \(realmManager.selectedCycleDate)")
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .opacity(0.6)
@@ -256,7 +264,7 @@ struct EditSubscription: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                         Spacer()
-                        Text("\(realmManager.selectedSusbscription.date == 0 ? "Forever" : "\(realmManager.selectedSusbscription.date)") \(pickersVM.dayArray[realmManager.selectedSusbscription.day])")
+                        Text("\(realmManager.date == 0 ? "Forever" : "\(realmManager.date)") \(pickersVM.dayArray[realmManager.day])")
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .opacity(0.6)
@@ -286,18 +294,18 @@ struct EditSubscription: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                         Spacer()
-                        if realmManager.selectedSusbscription.selectedDate == 31 {
+                        if realmManager.selectedDate == 31 {
                             Text("Never")
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .opacity(0.6)
-                        } else if realmManager.selectedSusbscription.selectedDate == 32 {
+                        } else if realmManager.selectedDate == 32 {
                             Text("Same day")
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .opacity(0.6)
                         } else {
-                            Text("\(realmManager.selectedSusbscription.selectedDate) \(realmManager.selectedSusbscription.selectedDay) \(realmManager.selectedSusbscription.selectedTime)")
+                            Text("\(realmManager.selectedDate) \(realmManager.selectedDay) \(realmManager.selectedTime)")
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .opacity(0.6)
@@ -350,7 +358,7 @@ struct EditSubscription: View {
                 }
             }
             .ignoresSafeArea(.keyboard)
-            .background(Color(hex: realmManager.selectedSusbscription.colorHex))
+            .background(Color(hex: realmManager.colorHex))
             VStack {
                 if pickersVM.showPicker {
                     VStack {
@@ -370,7 +378,7 @@ struct EditSubscription: View {
                         .padding()
                         Spacer()
                         if pickersVM.currencyPickerIsAppear {
-                            Picker(selection: $realmManager.selectedSusbscription.currency, label: Text("Currency")) {
+                            Picker(selection: $realmManager.currency, label: Text("Currency")) {
                                 ForEach(pickersVM.currencies, id: \.self) { symbol in
                                     Text(symbol)
                                 }
@@ -382,11 +390,11 @@ struct EditSubscription: View {
                                 .labelsHidden()
                                 .datePickerStyle(.wheel)
                         } else if pickersVM.cyclePickerIsAppear {
-                            CyclePicker(selectedCycle: $realmManager.selectedSusbscription.selectedCycle, selectedCyclePeriod: $realmManager.selectedSusbscription.selectedCyclePeriod, selectedCycleDate: $realmManager.selectedSusbscription.selectedCycleDate, cycle: pickersVM.cycle, cyclePeriod: pickersVM.cyclePeriod, cycleDate: pickersVM.cycleDate)
+                            CyclePicker(selectedCycle: $realmManager.selectedCycle, selectedCyclePeriod: $realmManager.selectedCyclePeriod, selectedCycleDate: $realmManager.selectedCycleDate, cycle: pickersVM.cycle, cyclePeriod: pickersVM.cyclePeriod, cycleDate: pickersVM.cycleDate)
                         } else if pickersVM.durationPickerIsAppear {
-                            DurationPicker(date: $realmManager.selectedSusbscription.date, day: $realmManager.selectedSusbscription.day, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray)
+                            DurationPicker(date: $realmManager.date, day: $realmManager.day, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray)
                         } else {
-                            RemindMePicker(selectedDate: $realmManager.selectedSusbscription.selectedDate, selectedDay: $realmManager.selectedSusbscription.selectedDay, selectedTime: $realmManager.selectedSusbscription.selectedTime, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray, timeArray: pickersVM.timeArray)
+                            RemindMePicker(selectedDate: $realmManager.selectedDate, selectedDay: $realmManager.selectedDay, selectedTime: $realmManager.selectedTime, dateArray: pickersVM.dateArray, dayArray: pickersVM.dayArray, timeArray: pickersVM.timeArray)
                         }
                     }
                     .frame(height: UIScreen.main.bounds.height / 3)
@@ -395,6 +403,10 @@ struct EditSubscription: View {
                 }
             }
             .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.bottom))
+        }
+        .sheet(isPresented: $showCustomIconView) {
+            CustomSubscriptionIcon()
+                .environmentObject(realmManager)
         }
     }
 }
