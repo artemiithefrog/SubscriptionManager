@@ -25,6 +25,8 @@ struct CustomSubscription: View {
     @State private var selectedColor: UIColor = .black
     @State private var isColorPicked = false
     
+    @State private var showAlert = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -56,7 +58,9 @@ struct CustomSubscription: View {
                             notificationHandler.askPermission()
                             UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
                         } else {
-                            
+                            if realmManager.price != "" {
+                                showAlert = true
+                            }
                         }
                     } label: {
                         if realmManager.price != ""{
@@ -479,6 +483,9 @@ struct CustomSubscription: View {
         }
         .onDisappear {
             realmManager.deinitData()
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Oops!"), message: Text("You need to set a name for this subscription"), dismissButton: .default(Text("Okay")))
         }
     }
 }
