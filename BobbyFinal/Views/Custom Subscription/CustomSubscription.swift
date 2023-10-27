@@ -85,11 +85,17 @@ struct CustomSubscription: View {
                                             if realmManager.icon == "" {
                                                 ZStack {
                                                     Circle()
-                                                        .fill(.gray).opacity(0.4)
+                                                        .fill(.gray).opacity(isColorPicked ? 0 : 0.4 )
                                                         .frame(width: 70, height: 70)
+                                                        .overlay(
+                                                            Circle()
+                                                                .stroke(.white, lineWidth: isColorPicked ? 1 : 0).opacity(0.7)
+                                                        )
                                                     VStack {
                                                         Text("Add")
+                                                            .foregroundColor(isColorPicked ? .white.opacity(0.4) : .black)
                                                         Text("icon")
+                                                            .foregroundColor(isColorPicked ? .white.opacity(0.4) : .black)
                                                     }
                                                     .tint(.black)
                                                     .font(.system(size: 15))
