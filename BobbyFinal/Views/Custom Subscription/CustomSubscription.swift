@@ -400,6 +400,10 @@ struct CustomSubscription: View {
                             }
                             .background(isColorPicked ? Color(uiColor: selectedColor) : .white)
                             .cornerRadius(10)
+                            .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(.gray, lineWidth: isColorPicked ? 0 : 1).opacity(1)
+                            )
                             .padding()
                         }
                     }
