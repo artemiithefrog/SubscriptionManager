@@ -123,7 +123,7 @@ struct CustomSubscription: View {
                                                     .frame(width: 80, height: 50)
                                                     .overlay(
                                                         RoundedRectangle(cornerRadius: 7)
-                                                            .stroke(Color.white, lineWidth: 1)
+                                                            .stroke(isColorPicked ? Color.white : Color.black, lineWidth: 1)
                                                             .opacity(pickersVM.currencyPickerIsAppear ? 1 : 0.2)
                                                     )
                                                     .onTapGesture {
@@ -155,7 +155,7 @@ struct CustomSubscription: View {
                                         .frame(width: 140, height: 50)
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 7)
-                                                .stroke(Color.white, lineWidth: 1)
+                                                .stroke(isColorPicked ? Color.white : Color.black, lineWidth: 1)
                                                 .opacity(priceIsFocused ? 1 : 0.2)
                                         )
                                         .keyboardType(.decimalPad)
@@ -182,7 +182,7 @@ struct CustomSubscription: View {
                                                 .foregroundColor(isColorPicked ? .white.opacity(0.7) : .black.opacity(0.7))
                                         }
                                         .multilineTextAlignment(.trailing)
-                                        .tint(.white)
+                                        .tint(isColorPicked ? .white : .black)
                                         .foregroundColor(isColorPicked ? .white : .black)
                                         .focused($nameIsFocused)
                                         .onTapGesture {
