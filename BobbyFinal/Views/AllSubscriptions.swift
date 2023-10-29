@@ -40,7 +40,8 @@ struct AllSubscriptions: View {
                 } label: {
                     Image(systemName: "plus")
                         .resizable()
-                        .frame(width: 25, height: 25)
+                        .frame(width: 17, height: 17)
+                        .fontWeight(.medium)
                 }
                 .tint(.gray)
             }
