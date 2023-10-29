@@ -12,12 +12,13 @@ struct AllSubscriptions: View {
     
     @StateObject var realmManager = RealmManager()
     @State private var showAddSubscription = false
+    @State private var showSettings = false
     
     var body: some View {
         VStack {
             HStack {
                 Button {
-                    
+                    showSettings.toggle()
                 } label: {
                     Image(systemName: "gear")
                         .resizable()
@@ -67,6 +68,9 @@ struct AllSubscriptions: View {
         .sheet(isPresented: $showAddSubscription) {
             AddSubscription()
                 .environmentObject(realmManager)
+        }
+        .sheet(isPresented: $showSettings) {
+            Settings()
         }
     }
 }

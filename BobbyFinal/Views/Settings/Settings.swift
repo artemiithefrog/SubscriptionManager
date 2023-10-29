@@ -8,8 +8,35 @@
 import SwiftUI
 
 struct Settings: View {
+    
+    @Environment (\.dismiss) var dismiss
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            ZStack {
+                HStack {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "chevron.down")
+                            .resizable()
+                            .tint(.gray)
+                            .fontWeight(.medium)
+                            .frame(width: 18, height: 10)
+                    }
+                    Spacer()
+                }
+                Text("Settings")
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+            }
+            .padding()
+            
+            ScrollView {
+                
+            }
+        }
     }
 }
 
