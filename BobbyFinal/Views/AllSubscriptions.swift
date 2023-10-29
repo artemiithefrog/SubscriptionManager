@@ -20,6 +20,8 @@ struct AllSubscriptions: View {
                     
                 } label: {
                     Image(systemName: "gear")
+                        .resizable()
+                        .frame(width: 25, height: 25)
                 }
                 .tint(.gray)
                 Spacer()
@@ -37,7 +39,8 @@ struct AllSubscriptions: View {
                     showAddSubscription.toggle()
                 } label: {
                     Image(systemName: "plus")
-                        .fontWeight(.medium)
+                        .resizable()
+                        .frame(width: 25, height: 25)
                 }
                 .tint(.gray)
             }
