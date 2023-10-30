@@ -206,7 +206,7 @@ struct CustomSubscription: View {
                                                 .foregroundColor(.white.opacity(0.7))
                                         }
                                         .multilineTextAlignment(.trailing)
-                                        .tint(.white)
+                                        .tint(isColorPicked ? .white : .black)
                                         .foregroundColor(isColorPicked ? .white : .black)
                                         .focused($nameIsFocused)
                                         .onTapGesture {
