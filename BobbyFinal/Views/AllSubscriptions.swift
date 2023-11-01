@@ -10,7 +10,8 @@ import SwiftUI
 
 struct AllSubscriptions: View {
     
-    @StateObject var realmManager = RealmManager()
+    @ObservedResults(Subscription.self) var subscription
+    var realmManager = RealmManager()
     @State private var showAddSubscription = false
     @State private var showSettings = false
     
@@ -47,7 +48,8 @@ struct AllSubscriptions: View {
                 .tint(.gray)
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
-            if realmManager.subscriptions.isEmpty {
+            
+            if subscription.isEmpty {
                 VStack {
                     Spacer()
                     Text("Hi, my name is Bobby 3!")
@@ -73,8 +75,4 @@ struct AllSubscriptions: View {
             Settings()
         }
     }
-}
-
-#Preview {
-    AllSubscriptions()
 }
