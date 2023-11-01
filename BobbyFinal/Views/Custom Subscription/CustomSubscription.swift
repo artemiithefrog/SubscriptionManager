@@ -14,6 +14,10 @@ struct CustomSubscription: View {
     @EnvironmentObject var pickersVM: PickersViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @FocusState var nameIsFocused: Bool
+    @FocusState var priceIsFocused: Bool
+    @FocusState var descriptionIsFocused: Bool
+    
     @State var isDisclosed = false
     @State var showCustomIconView = false
     @State var showColorPicker = false
@@ -22,11 +26,7 @@ struct CustomSubscription: View {
     @State var isColorPicked = false
     
     @State var showAlert = false
-    
-    
-    @FocusState var nameIsFocused: Bool
-    @FocusState var priceIsFocused: Bool
-    @FocusState var descriptionIsFocused: Bool
+    @State var isAddButtonDisabled = true
     
     var body: some View {
         NavigationStack {
@@ -73,6 +73,7 @@ struct CustomSubscription: View {
                                 .opacity(0.5)
                         }
                     }
+                    .disabled(isAddButtonDisabled)
                 }
                 .padding()
                 ScrollView {
@@ -489,6 +490,11 @@ struct CustomSubscription: View {
         .onChange(of: selectedColor) { newValue in
             isColorPicked = true
             realmManager.color = Color(uiColor: selectedColor)
+        }
+        .onChange(of: realmManager.title) { newValue in
+            if newValue != "" {
+                isAddButtonDisabled = false
+            }
         }
         .onDisappear {
             realmManager.deinitData()
