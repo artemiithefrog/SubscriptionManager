@@ -31,6 +31,7 @@ struct AllSubscriptions: View {
                     Text("All Subscriptions")
                         .tint(.black)
                         .fontWeight(.bold)
+                        .font(.system(size: 18))
                     Image(systemName: "chevron.down")
                         .resizable()
                         .frame(width: 14, height: 7)
