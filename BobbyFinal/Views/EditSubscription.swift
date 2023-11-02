@@ -72,12 +72,40 @@ struct EditSubscription: View {
                     HStack {
                         
                         if realmManager.icon == "" {
-
+                            ZStack {
+                                Circle()
+                                    .frame(width: 70, height: 70)
+                                    .overlay(
+                                        Circle()
+                                            .stroke(.white, lineWidth: 1).opacity(0.7)
+                                    )
+                                VStack {
+                                    Text("Add")
+                                        .foregroundColor(.white.opacity(0.4))
+                                    Text("icon")
+                                        .foregroundColor(.white.opacity(0.4))
+                                }
+                                .tint(.black)
+                                .font(.system(size: 15))
+                            }
+                            .onTapGesture {
+                                showCustomIconView = true
+                            }
                         } else {
-                            Image(realmManager.selectedSusbscription.icon)
-                                .resizable()
-                                .frame(width: 70, height: 70)
-                                .foregroundColor(.white)
+                            if realmManager.selectedSusbscription.icon == "" {
+                                Image(realmManager.icon)
+                                    .resizable()
+                                    .frame(width: 70, height: 70)
+                                    .foregroundColor(.white)
+                                    .onTapGesture {
+                                        showCustomIconView = true
+                                    }
+                            } else {
+                                Image(realmManager.selectedSusbscription.icon)
+                                    .resizable()
+                                    .frame(width: 70, height: 70)
+                                    .foregroundColor(.white)
+                            }
                         }
                         
                         Spacer()
