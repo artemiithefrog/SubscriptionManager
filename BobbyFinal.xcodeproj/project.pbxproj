@@ -33,6 +33,10 @@
 		16A2FB4C2ABDB3B200C24B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16A2FB4B2ABDB3B200C24B11 /* Preview Assets.xcassets */; };
 		16A2FB562ABDB40A00C24B11 /* AllSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2FB552ABDB40A00C24B11 /* AllSubscriptions.swift */; };
 		16A2FB582ABDBDEF00C24B11 /* AddSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */; };
+		16BE0A392AF442D900E38A6A /* Security .swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE0A382AF442D900E38A6A /* Security .swift */; };
+		16BE0A3B2AF44A6800E38A6A /* SortSubscriptionBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE0A3A2AF44A6800E38A6A /* SortSubscriptionBy.swift */; };
+		16BE0A3D2AF44CAF00E38A6A /* ViewTotalAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE0A3C2AF44CAF00E38A6A /* ViewTotalAs.swift */; };
+		16BE0A3F2AF44EB000E38A6A /* DefaultCurrency .swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE0A3E2AF44EB000E38A6A /* DefaultCurrency .swift */; };
 		16D779E72AE7D6CC006FFC44 /* CustomSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D779E62AE7D6CC006FFC44 /* CustomSubscription.swift */; };
 		16D779EA2AE7D949006FFC44 /* CustomSubscriptionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D779E92AE7D949006FFC44 /* CustomSubscriptionIcon.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +67,10 @@
 		16A2FB4B2ABDB3B200C24B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		16A2FB552ABDB40A00C24B11 /* AllSubscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSubscriptions.swift; sourceTree = "<group>"; };
 		16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscription.swift; sourceTree = "<group>"; };
+		16BE0A382AF442D900E38A6A /* Security .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Security .swift"; sourceTree = "<group>"; };
+		16BE0A3A2AF44A6800E38A6A /* SortSubscriptionBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortSubscriptionBy.swift; sourceTree = "<group>"; };
+		16BE0A3C2AF44CAF00E38A6A /* ViewTotalAs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTotalAs.swift; sourceTree = "<group>"; };
+		16BE0A3E2AF44EB000E38A6A /* DefaultCurrency .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultCurrency .swift"; sourceTree = "<group>"; };
 		16D779E62AE7D6CC006FFC44 /* CustomSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscription.swift; sourceTree = "<group>"; };
 		16D779E92AE7D949006FFC44 /* CustomSubscriptionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscriptionIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				162662CC2AEF0544007417A2 /* Settings.swift */,
+				16BE0A382AF442D900E38A6A /* Security .swift */,
+				16BE0A3A2AF44A6800E38A6A /* SortSubscriptionBy.swift */,
+				16BE0A3C2AF44CAF00E38A6A /* ViewTotalAs.swift */,
+				16BE0A3E2AF44EB000E38A6A /* DefaultCurrency .swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -303,12 +315,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1651AB8A2AC1B6F30074E940 /* TemplatesViewModel.swift in Sources */,
+				16BE0A3B2AF44A6800E38A6A /* SortSubscriptionBy.swift in Sources */,
 				16A2FB472ABDB3B000C24B11 /* ContentView.swift in Sources */,
+				16BE0A392AF442D900E38A6A /* Security .swift in Sources */,
 				1651AB9F2AC1D4CB0074E940 /* CyclePicker.swift in Sources */,
 				1651ABA72AC1D5360074E940 /* Subscriptions.swift in Sources */,
 				1651AB8E2AC1BB570074E940 /* AllTemplates.swift in Sources */,
 				16A2FB562ABDB40A00C24B11 /* AllSubscriptions.swift in Sources */,
 				1651AB9D2AC1C3E40074E940 /* NewSubscription.swift in Sources */,
+				16BE0A3F2AF44EB000E38A6A /* DefaultCurrency .swift in Sources */,
 				1651AB972AC1BDB90074E940 /* Subscription.swift in Sources */,
 				16258AD32AD04B7F003DF425 /* EditSubscription.swift in Sources */,
 				1651AB8C2AC1BB4C0074E940 /* PopularTemplates.swift in Sources */,
@@ -317,6 +332,7 @@
 				1651AB842AC1B1E80074E940 /* AddSubscriptionSegmentedControl.swift in Sources */,
 				1651AB902AC1BD170074E940 /* RealmManager.swift in Sources */,
 				165768462AE2B2BD008DD8E3 /* ColorPicker.swift in Sources */,
+				16BE0A3D2AF44CAF00E38A6A /* ViewTotalAs.swift in Sources */,
 				16A2FB452ABDB3B000C24B11 /* BobbyFinalApp.swift in Sources */,
 				1651ABA12AC1D4DB0074E940 /* DurationPicker.swift in Sources */,
 				1651AB882AC1B6DB0074E940 /* Templates.swift in Sources */,
