@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct DefaultCurrency_: View {
+struct DefaultCurrency: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Default Currency")
     }
 }
 
 #Preview {
-    DefaultCurrency_()
+    DefaultCurrency()
 }
