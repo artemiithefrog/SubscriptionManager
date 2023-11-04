@@ -37,6 +37,7 @@
 		16BE0A3B2AF44A6800E38A6A /* SortSubscriptionBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE0A3A2AF44A6800E38A6A /* SortSubscriptionBy.swift */; };
 		16BE0A3D2AF44CAF00E38A6A /* ViewTotalAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE0A3C2AF44CAF00E38A6A /* ViewTotalAs.swift */; };
 		16BE0A3F2AF44EB000E38A6A /* DefaultCurrency .swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE0A3E2AF44EB000E38A6A /* DefaultCurrency .swift */; };
+		16BE0A422AF6EF4900E38A6A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE0A412AF6EF4900E38A6A /* SearchBar.swift */; };
 		16D779E72AE7D6CC006FFC44 /* CustomSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D779E62AE7D6CC006FFC44 /* CustomSubscription.swift */; };
 		16D779EA2AE7D949006FFC44 /* CustomSubscriptionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D779E92AE7D949006FFC44 /* CustomSubscriptionIcon.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		16BE0A3A2AF44A6800E38A6A /* SortSubscriptionBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortSubscriptionBy.swift; sourceTree = "<group>"; };
 		16BE0A3C2AF44CAF00E38A6A /* ViewTotalAs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTotalAs.swift; sourceTree = "<group>"; };
 		16BE0A3E2AF44EB000E38A6A /* DefaultCurrency .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultCurrency .swift"; sourceTree = "<group>"; };
+		16BE0A412AF6EF4900E38A6A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		16D779E62AE7D6CC006FFC44 /* CustomSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscription.swift; sourceTree = "<group>"; };
 		16D779E92AE7D949006FFC44 /* CustomSubscriptionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscriptionIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,13 +221,22 @@
 			children = (
 				16A2FB462ABDB3B000C24B11 /* ContentView.swift */,
 				16A2FB552ABDB40A00C24B11 /* AllSubscriptions.swift */,
-				16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */,
+				16BE0A402AF6EEBD00E38A6A /* Add Subcsription */,
 				1651AB9C2AC1C3E40074E940 /* NewSubscription.swift */,
 				16258AD22AD04B7F003DF425 /* EditSubscription.swift */,
 				16D779E82AE7D6DF006FFC44 /* Custom Subscription */,
 				162662CB2AEF052A007417A2 /* Settings */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		16BE0A402AF6EEBD00E38A6A /* Add Subcsription */ = {
+			isa = PBXGroup;
+			children = (
+				16A2FB572ABDBDEF00C24B11 /* AddSubscription.swift */,
+				16BE0A412AF6EF4900E38A6A /* SearchBar.swift */,
+			);
+			path = "Add Subcsription";
 			sourceTree = "<group>";
 		};
 		16D779E82AE7D6DF006FFC44 /* Custom Subscription */ = {
@@ -332,6 +343,7 @@
 				1651AB842AC1B1E80074E940 /* AddSubscriptionSegmentedControl.swift in Sources */,
 				1651AB902AC1BD170074E940 /* RealmManager.swift in Sources */,
 				165768462AE2B2BD008DD8E3 /* ColorPicker.swift in Sources */,
+				16BE0A422AF6EF4900E38A6A /* SearchBar.swift in Sources */,
 				16BE0A3D2AF44CAF00E38A6A /* ViewTotalAs.swift in Sources */,
 				16A2FB452ABDB3B000C24B11 /* BobbyFinalApp.swift in Sources */,
 				1651ABA12AC1D4DB0074E940 /* DurationPicker.swift in Sources */,
