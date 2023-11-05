@@ -9,6 +9,9 @@ import SwiftUI
 
 struct Security: View {
     
+    @State private var isUseFaceIdOn = false
+    @State private var isUsePasscodeOn = false
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -33,7 +36,30 @@ struct Security: View {
             .padding()
             
             ScrollView {
-                
+                Divider()
+                HStack {
+                    Text("Use Face ID")
+                    Spacer()
+                    Toggle("", isOn: $isUseFaceIdOn)
+                }
+                .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
+                Divider()
+                    .padding(.bottom, 5)
+                Divider()
+                HStack {
+                    Text("Use Passcode")
+                    Spacer()
+                    Toggle("", isOn: $isUsePasscodeOn)
+                }
+                .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
+                Divider()
+                HStack {
+                    Text("Change Passcode...")
+                        .foregroundColor(.gray)
+                    Spacer()
+                }
+                .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 0))
+                Divider()
             }
         }
         .navigationBarBackButtonHidden(true)
