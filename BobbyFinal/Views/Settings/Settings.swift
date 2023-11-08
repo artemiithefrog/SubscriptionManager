@@ -15,6 +15,7 @@ struct Settings: View {
     @State private var showSortSubscription = false
     @State private var showViewTotal = false
     @State private var showDefaultCurrency = false
+    @State private var showAppIcon = false
     
     var body: some View {
         
@@ -135,15 +136,17 @@ struct Settings: View {
                     .padding(.top, 10)
                     .font(.system(size: 13))
                 Divider()
-                Text("App Icon")
-                    .foregroundColor(.black)
-                    .frame(width: UIScreen.main.bounds.width, alignment: .leading)
-                    .padding(.leading)
-                    .padding(.top, 10)
-                    .font(.system(size: 15))
-                    .onTapGesture {
-                        
-                    }
+                HStack {
+                    Text("App Icon")
+                        .foregroundColor(.black)
+                        .frame(width: UIScreen.main.bounds.width, alignment: .leading)
+                        .padding(.leading)
+                        .padding(.top, 10)
+                        .font(.system(size: 15))
+                }
+                .onTapGesture {
+                    showAppIcon = true
+                }
                 Divider()
                     .padding(.leading)
                     .padding(.trailing)
@@ -274,6 +277,9 @@ struct Settings: View {
             }
             .navigationDestination(isPresented: $showDefaultCurrency) {
                 DefaultCurrency()
+            }
+            .navigationDestination(isPresented: $showAppIcon) {
+                AppIcon()
             }
         }
     }
